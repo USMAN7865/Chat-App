@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat_app/Constants/constants.dart';
@@ -87,6 +87,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           await _auth.createUserWithEmailAndPassword(
                               email: email!, password: password!);
 
+                      // ignore: unnecessary_null_comparison
                       if (newuser != null) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
@@ -97,6 +98,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         showSpinner = false;
                       });
                     } catch (e) {
+                      // ignore: avoid_print
                       print(e);
                     }
                   }),

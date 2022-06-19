@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, import_of_legacy_library_into_null_safe
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat_app/Constants/constants.dart';
@@ -77,6 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   try {
                     final user = await _auth.signInWithEmailAndPassword(
                         email: email!, password: password!);
+                    // ignore: unnecessary_null_comparison
                     if (user != null) {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
@@ -87,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       showSpinner = false;
                     });
                   } catch (e) {
+                    // ignore: avoid_print
                     print(e);
                   }
                 },
